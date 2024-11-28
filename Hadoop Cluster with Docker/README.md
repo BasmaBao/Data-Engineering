@@ -292,3 +292,6 @@ hdfs fsck /user/test/CommentsMarch2018.csv -files -blocks -locations`
    or you can just stop each container and restart it. The data may persist.
 
 2. **Scaling**: Add more slave nodes by starting additional containers and updating the `workers` file.
+3. Converting bytes to megabytes (MB):
+   - 1 MB = 1024 KB.
+   - 1 KB = 1024 bytes.
