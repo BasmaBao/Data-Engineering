@@ -169,11 +169,15 @@ Modify the `hadoop-env.sh` file (`/usr/local/hadoop/etc/hadoop/yarn-env.sh`) on 
      Datanode
      ResourceManager (if using YARN)
      ```
+     ![jps Output for master](Images/jpsmaster.PNG)
+
    - On **Slave1**, you should see:
      ```
      Datanode
      NodeManager (if using YARN)
      ```
+     ![jps Output for slave1 node](Images/jpsslave1.PNG)
+
 
 ---
 
@@ -194,7 +198,7 @@ Modify the `hadoop-env.sh` file (`/usr/local/hadoop/etc/hadoop/yarn-env.sh`) on 
 
 #### 6.1 Create a Directory in HDFS
 ```bash
-hdfs dfs -mkdir /user/test
+hdfs dfs -mkdir -p /user/test
 ```
 
 #### 6.2 Upload a File to HDFS
@@ -202,16 +206,49 @@ Create a sample text file on your local system:
 ```bash
 echo "Hadoop is a distributed storage system." > hadoop.txt
 ```
-
+or copy a file from your local system to the container 
+```bash
+docker cp /yourpath/CommentsMarch2018.csv slave1:/root/
+```
 Copy the file into HDFS:
 ```bash
 hdfs dfs -put /path/to/hadoop.txt /user/test
+hdfs dfs -put /path/to/CommentsMarch2018.csv /user/test
 ```
 
 #### 6.3 Verify the File in HDFS
 ```bash
 hdfs dfs -ls /user/test
 ```
+#### 6.4 Checking the number of blocks per file and details
+```bash
+hdfs dfsadmin -report
+```
+ 
+ ![report](Images/adminreport.PNG)
+ 
+- There are 3 blocks reported in the HDFS cluster, as indicated under "Num of Blocks" for both master and slave1. Since replication is set to 2, each block is replicated across two DataNodes (one on master and one on slave1).
+
+  - For further details, we can see infos of each file in hdfs with the following command: 
+```bash
+hdfs fsck /user/test/CommentsMarch2018.csv -files -blocks -locations`
+```
+ ![Details for larger file](Images/Captur.PNG) 
+
+- **DataNodes in the Cluster**:  There are two DataNodes in the cluster: **master** and **slave1**.
+- **Total Size**: The total size of the file stored in HDFS is **17,236,977 bytes (~17.2 MB)**.
+- **Total Blocks**:  
+   - The file is divided into **2 blocks**.  
+   - Since the file's size exceeds the default HDFS block size of 128 MB, it is divided into smaller blocks.  
+   - The **average block size** is **86,184,888 bytes (~86 MB)**.
+     
+- So, this file has 4 blocks (2 original and 2 copies) distributed in master and slave1 nodes.
+
+- For the **second file**: It only has 2 blocks (1 copy and 1 original) since its size is less the blocks' default size.
+  
+   ![details for smaller file](Images/fschklargefile.PNG) 
+
+
 
 ---
 
