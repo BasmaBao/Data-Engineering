@@ -1,10 +1,6 @@
-Here's a detailed `README.md` file to explain the steps to run a simple ETL DAG with Apache Airflow on a Linux system using MySQL as the database.
-
----
-
 # Running a Simple ETL DAG with Airflow on Linux
 
-This guide explains how to set up and run a simple ETL DAG using Apache Airflow on a Linux system. The DAG executes an ETL script that extracts data from a MySQL database, transforms it, and writes the transformed data to a CSV file.
+This guide explains how to set up and run a simple ETL DAG using Apache Airflow on a Linux system. The DAG executes an ETL script that extracts data from a MySQL database, transforms it, and writes the transformed data to a CSV file. It is an application of the following youtube video: https://www.youtube.com/watch?v=RhNUbWynpwc
 
 ## Prerequisites
 
