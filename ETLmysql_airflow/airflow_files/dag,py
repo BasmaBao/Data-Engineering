@@ -1,0 +1,78 @@
+from datetime import datetime, timedelta
+import os
+from airflow import DAG
+
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
+from airflow.operators.empty import EmptyOperator
+from airflow.operators.bash import BashOperator
+
+
+# optairflowstart.sh
+
+default_args = {
+    'owner' 'udacity',
+    'start_date' datetime(2024, 12, 1),
+    'depends_on_past' False,
+    'retries' 1,
+    'retry_delay' timedelta(minutes=5),
+    'catchup' True
+}
+
+with DAG(dag_id='sparkify_music_uwu_dag', default_args=default_args,
+         description='Load and transform data in MYSQL 
+                      with Airflow',
+         schedule_interval='@hourly') as dag
+
+    start_operator = EmptyOperator(task_id='begin_execution', dag=dag)
+
+    create_tables = BashOperator(
+	task_id = 'create_tables',
+	bash_command = 'bash homeuser2024ETLmysqlairflowFilescreateTables.sh ')
+	
+   
+    load_songs_dimension_table = BashOperator(
+	task_id = 'load_song_dim_Table',
+	bash_command = 'bash homeuser2024ETLmysqlairflowFilesload_songs_table.sh ')
+	
+    load_artist_dimension_table = BashOperator(
+        task_id='load_artist_dim_table',
+       bash_command = 'bash homeuser2024ETLmysqlairflowFilesload_artist_table.sh '
+    )
+
+
+    load_songplays_table = BashOperator(
+        task_id='load_songplays_fact_table',
+        bash_command = 'bash homeuser2024ETLmysqlairflowFilesload_songplays_table.sh '
+    )
+
+    load_user_dimension_table = BashOperator(
+        task_id='load_user_dim_table',
+        bash_command = 'bash homeuser2024ETLmysqlairflowFilesload_user_table.sh '
+    )
+
+    load_time_dimension_table = BashOperator(
+        task_id='load_time_dim_table',
+         bash_command = 'bash homeuser2024ETLmysqlairflowFilesload_time_table.sh '
+        
+    )
+
+
+    end_operator = EmptyOperator(task_id='stop_execution', dag=dag)
+
+    start_operator  create_tables
+
+    create_tables  [
+    load_user_dimension_table,
+    load_songs_dimension_table,
+    load_artist_dimension_table,
+    load_time_dimension_table
+    ]
+
+    [
+    load_user_dimension_table,
+    load_songs_dimension_table,
+    load_artist_dimension_table,
+    load_time_dimension_table
+    ]  load_songplays_table
+
+    load_songplays_table  end_operator
