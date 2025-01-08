@@ -112,8 +112,7 @@ Let me know if you need further adjustments!
         [2023-12-03 17:11:15,535] INFO Registered broker 0 at path /brokers/ids/0 with addresses: PLAINTEXT://PNS-VirtualBox:9092, czxid (broker epoch): 124 (kafka.zk.KafkaZkClient)
         
         default topic: 'tmdb_movies'
-        bootstrap-server: 'PNS-VirtualBox:9092'
-        ```
+        bootstrap-server: 'PNS-VirtualBox:9092'```
 
   - Read API data and send it to the Kafka Producer:
     
@@ -177,7 +176,6 @@ def process_and_send_movies():
     Processes movie data and sends to Kafka.
     """
     popular_movies = fetch_popular_movies()
-
     for movie in popular_movies:
         movie_id = movie["id"]
         # Check if the movie has already been processed
@@ -206,12 +204,11 @@ def process_and_send_movies():
             sleep(1)  # Simulate interval between sending messages
 
 # Run the movie data processing
-process_and_send_movies()
-```
+process_and_send_movies()```
     
 - Kafka Consumer
     
-    ```bash
+```bash
  # Import necessary libraries
 from kafka import KafkaConsumer
 from json import loads
