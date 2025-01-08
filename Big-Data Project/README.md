@@ -898,6 +898,93 @@ minimum_wire_compatibility_version	"6.8.0"
 minimum_index_compatibility_version	"6.0.0-beta1"
 tagline	"You Know, for Search"
 ```
+- installing kibana
+        
+        ```bash
+        curl -O https://artifacts.elastic.co/downloads/kibana/kibana-7.17.15-linux-x86_64.tar.gz
+        ```
+        
+    - extract it
+        
+        ```bash
+        tar -xzf kibana-7.17.15-linux-x86_64.tar.gz
+        ```
+        
+    - navigate to it
+        
+        ```bash
+        cd kibana-7.17.15-linux-x86_64/
+        ```
+        
+    - run it **[elastic should be started in order to access elastic web interface UI]**
+        
+        ```bash
+        ./bin/kibana
+        ```
+        
+    - **`kibana`** is running in
+        
+        ```bash
+        localhost:5601
+        ```
+        
+- setup
+    - make sure you put the correct path to your connector jars & include **;** in the first one
+        
+        ```python
+        # Specify connector and format jars
+        t_env.get_config().get_configuration().set_string(
+            "pipeline.jars",
+         "file:///home/user/path/to/flink-sql-connector-kafka-3.4.0-1.20.jar;"
+         "file:///home/user/path/to/flink-sql-connector-elasticsearch7-3.0.1-1.17.jar"
+        )
+        ```
+        
+    - put the right properties
+        
+        ```python
+        # Define source table DDL
+        source_ddl = """
+            CREATE TABLE source_table (
+        ....
+            ) WITH (
+                'connector' = 'kafka',
+                'topic' = '<your topic name>',
+                'properties.bootstrap.servers' = 'localhost:9092',
+                'properties.group.id' = 'test',
+                'scan.startup.mode' = 'latest-offset',
+                'format' = 'json'
+            )
+        """
+        
+        # Define sink table DDL
+        sink_ddl = """
+            CREATE TABLE sink_table(
+        ...
+            ) WITH (        
+                'connector' = 'elasticsearch-7',
+                'index' = '<give this a name>',
+                'hosts' = 'http://localhost:9200',
+                'format' = 'json'
+            )
+        """
+        ```
+        
+    - replace the last lines with this
+        
+        ```python
+        # Process the data
+        result_table = source_table
+        # Retrieve the sink table
+        sink_table = t_env.from_path('sink_table')
+        
+        print("Sink Table Schema:")
+        sink_table.print_schema()
+        
+        # Insert the processed data into the sink table
+        result_table.execute_insert('sink_table').wait()
+        ```
+        
   
 
 
