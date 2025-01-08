@@ -859,11 +859,10 @@ Source Table Schema:
         
         ```bash
         warning: usage of JAVA_HOME is deprecated, use ES_JAVA_HOME
-        Future versions of Elasticsearch will require Java 11; your Java version from [/usr/lib/jvm/java-8-openjdk-amd64/jre] does not meet this requirement. Consider switching to a distribution of Elasticsearch with a bundled JDK. If you are already using a distribution with a bundled JDK, ensure the JAVA_HOME environment variable is not set.
-```
-        
-- stop elastic **`ctrl + c`**
-- copy the path where your **`java 11`** & **`bin/elasticsearch`** located & execute it in **`bashrc`** file
+        Future versions of Elasticsearch will require Java 11; your Java version from [/usr/lib/jvm/java-8-openjdk-amd64/jre] does not 		meet this requirement. Consider switching to a distribution of Elasticsearch with a bundled JDK. If you are already using a 		distribution with a bundled JDK, ensure the JAVA_HOME environment variable is not set.
+	```     
+  - stop elastic **`ctrl + c`**
+  - copy the path where your **`java 11`** & **`bin/elasticsearch`** located & execute it in **`bashrc`** file
         
         ```bash
         vim ~/.bashrc
@@ -875,7 +874,7 @@ Source Table Schema:
         source ~/.bashrc
         ```
         
-- **`elasticsearch`** cluster is running in
+  - **`elasticsearch`** cluster is running in
         
         ```bash
         localhost:9200
