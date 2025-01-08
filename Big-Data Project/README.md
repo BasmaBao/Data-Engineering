@@ -788,7 +788,7 @@ result_table = t_env.sql_query(sql_query)
 
 # Print the result table to the console
 result_table.execute().print()
-                           ```
+```
 - The output:
 ```bash
 Source Table Schema:
@@ -825,7 +825,7 @@ Source Table Schema:
 | +I |               426063 |                      Nosferatu |                     2024-12-25 |       [Drama, Fantasy, Horror] |          6.9 |         647 |       952.12 |             50000000 |            101613765 | [Focus Features, Studio 8, ... |
 | +I |              1276945 |                        Ferry 2 |                     2024-12-19 |      [Crime, Thriller, Action] |          5.7 |          77 |       873.98 |                    0 |                    0 |               [De Mensen, VRT] |
 | +I |               533535 |           Deadpool & Wolverine |                     2024-07-24 | [Action, Comedy, Science Fi... |          7.7 |        6277 |       856.10 |            200000000 |           1338073645 | [Marvel Studios, Maximum Ef... |
-                                                                ```
+```
   
 
 
