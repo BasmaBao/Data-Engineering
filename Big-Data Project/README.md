@@ -654,7 +654,7 @@ for message in consumer:
         "VRT"
       ]
     }
-```
+    ```
 ## **`kafka`** & **`Flink`** streaming
 ### Installation Requirements
 
@@ -706,8 +706,6 @@ for message in consumer:
         "file://path to flink kafka connector jar"
         ```
 
----
-
 ### Setup
 
 - If PyFlink is correctly installed, the following line should not be marked:
@@ -733,7 +731,7 @@ for message in consumer:
                 'scan.startup.mode' = 'latest-offset',
                 'format' = 'json'
             )
-        ```
+            ```
         
     - before execution make sure you have **`flink`** & **`kafka`** started
     - run the Producer file first then `kafka_flink_movie.py`
