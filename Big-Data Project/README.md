@@ -1,6 +1,6 @@
 # Real-Time Data Pipeline with Kafka, Flink, Elasticsearch, and TMDB API
 
-### Overview:
+## Overview:
 This project sets up a real-time data streaming pipeline designed to process, store, and visualize movie-related data. The system utilizes a combination of powerful tools:
 - **Kafka** for handling real-time, data streams.
 - **Flink** for performing data processing in real-time, enabling insights and analytics.
@@ -19,7 +19,7 @@ This guide outlines the steps to implement and work with this pipeline, includin
 Let me know if you need further adjustments!
 
 
-### **`TMDB`** API
+## **`TMDB`** API
 
 - **How to Get Your TMDB API Key:**
 
@@ -655,5 +655,143 @@ for message in consumer:
       ]
     }
 ```
-       
+## **`kafka`** & **`Flink`** streaming
+### Installation Requirements
+
+- **Compatibility**: Ensure `**apache-flink**`, `**Pyflink**`, and `**flink-sql-connector-kafka-1.16.3.jar**` are all the same version.
+
+1. **Install Flink**:
+    - Follow this tutorial: [Flink Installation Guide](https://www.youtube.com/watch?v=6uW6u_zuloo)
+    - To start the cluster:
+        ```bash
+        cd flink
+        ./bin/start-cluster.sh
+        # Access the interface at localhost:8081
+        ```
+    - To stop the cluster:
+        ```bash
+        ./bin/stop-cluster.sh
+        ```
+
+2. **Ensure Python 3 is Installed**:
+    ```bash
+    python3 --version
+    # If needed, install Python 3:
+    sudo apt update
+    sudo apt install python3
+    sudo apt dist-upgrade
+    ```
+
+3. **Install `pip3`**:
+    ```bash
+    pip3 --version
+    ```
+
+4. **Install PyFlink**:
+    ```bash
+    pip3 install apache-flink
+    # Verify installation
+    pip3 show apache-flink
+    ```
+
+    - Check if PyFlink is installed by importing:
+        ```python
+        from pyflink.table import TableEnvironment, EnvironmentSettings
+        ```
+
+5. **Install Flink Kafka Connector**:
+    - Download the compatible Kafka connector for Flink from [Maven Repository](https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kafka).
+    - After downloading, add the connector’s path:
+        ```bash
+        "file://path to flink kafka connector jar"
+        ```
+
+---
+
+### Setup
+
+- If PyFlink is correctly installed, the following line should not be marked:
+    ```bash
+    from pyflink.table import TableEnvironment, EnvironmentSettings
+    ```
+
+6. Add the path to the Flink Kafka connector JAR:
+    ```bash
+    "file://path to flink kafka connector jar"
+    ```
+     
+        ```bash
+        # example
+        
+        CREATE TABLE source_table(
+        .....
+            ) WITH (
+                'connector' = 'kafka',
+                'topic' = '<your topic name>',
+                'properties.bootstrap.servers' = 'localhost:9092',
+                'properties.group.id' = 'test',
+                'scan.startup.mode' = 'latest-offset',
+                'format' = 'json'
+            )
+        ```
+        
+    - before execution make sure you have **`flink`** & **`kafka`** started
+    - run the Producer file first then `kafka_flink_movie.py`
+```bash
+from pyflink.table import TableEnvironment, EnvironmentSettings
+
+# Create a TableEnvironment
+env_settings = EnvironmentSettings.in_streaming_mode()
+t_env = TableEnvironment.create(env_settings)
+
+# Specify connector and format jars
+t_env.get_config().get_configuration().set_string(
+    "pipeline.jars",
+    "file:///home/user/Téléchargements/flink-sql-connector-kafka-3.4.0-1.20.jar"
+)
+
+# Define source table DDL
+source_ddl = """
+    CREATE TABLE source_table_movie (
+	  
+            Movie_ID BIGINT,
+            Title VARCHAR(255),
+            Release_Date VARCHAR(255),
+            Genres ARRAY<VARCHAR(255)>,
+            Vote_Average DECIMAL(3, 1),
+            Vote_Count INT,
+            Popularity DECIMAL(10, 2),
+            Budget BIGINT,
+            Revenue BIGINT,
+            Production_Companies ARRAY<VARCHAR(255)> -- Change to this format without spaces
+    ) WITH (
+        'connector' = 'kafka',
+        'topic' = 'tmdb_movies',
+        'properties.bootstrap.servers' = 'PNS-VirtualBox:9092',
+        'properties.group.id' = 'test',
+        'scan.startup.mode' = 'latest-offset',
+        'format' = 'json'
+    )
+"""
+# Execute DDL statement to create the source table
+t_env.execute_sql(source_ddl)
+
+# Retrieve the source table
+source_table = t_env.from_path('source_table_movie')
+
+print("Source Table Schema:")
+source_table.print_schema()
+
+# Define a SQL query to select all columns from the source table
+sql_query = "SELECT * FROM source_table_movie"
+
+# Execute the query and retrieve the result table
+result_table = t_env.sql_query(sql_query)
+
+# Print the result table to the console
+result_table.execute().print()
+```
+
+
+
 
