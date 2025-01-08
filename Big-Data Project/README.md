@@ -236,55 +236,7 @@ for message in consumer:
         ```
     - The output will looklike this : 
 
-    ```bash{
-      "Movie_ID": 1000075,
-      "Title": "The Price of Money: A Largo Winch Adventure",
-      "Release_Date": "2024-07-31",
-      "Genres": [
-        "Action",
-        "Adventure",
-        "Thriller"
-      ],
-      "Vote_Average": 5.928,
-      "Vote_Count": 83,
-      "Popularity": 735.391,
-      "Budget": 17000000,
-      "Revenue": 0,
-      "Production_Companies": [
-        "Pan-Europ\u00e9enne",
-        "Versus Production",
-        "TF1 Films Production",
-        "RTBF",
-        "BeTV",
-        "Proximus",
-        "Canal+",
-        "la Fe\u0301de\u0301ration Wallonie- Bruxelles",
-        "Cin\u00e9+",
-        "screen.brussels",
-        "Wild Bunch",
-        "Wallimage"
-      ]
-    }
-    {
-      "Movie_ID": 1276945,
-      "Title": "Ferry 2",
-      "Release_Date": "2024-12-19",
-      "Genres": [
-        "Crime",
-        "Thriller",
-        "Action"
-      ],
-      "Vote_Average": 5.7,
-      "Vote_Count": 76,
-      "Popularity": 873.984,
-      "Budget": 0,
-      "Revenue": 0,
-      "Production_Companies": [
-        "De Mensen",
-        "VRT"
-      ]
-    }
-    user@PNS-VirtualBox:~/2024/kafka/kafkaism/github_project$ python3 tmdb_api_producer.py
+    ```bash
     {
       "Movie_ID": 558449,
       "Title": "Gladiator II",
