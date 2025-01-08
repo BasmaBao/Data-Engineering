@@ -855,7 +855,7 @@ Source Table Schema:
         ./bin/elasticsearch
         ```
         
-    - if you saw this Warning
+  5. if you saw this Warning
         
         ```bash
         warning: usage of JAVA_HOME is deprecated, use ES_JAVA_HOME
@@ -874,7 +874,7 @@ Source Table Schema:
         source ~/.bashrc
         ```
         
-  - **`elasticsearch`** cluster is running in
+- **`elasticsearch`** cluster is running in
         
         ```bash
         localhost:9200
