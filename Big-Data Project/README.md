@@ -234,5 +234,475 @@ for message in consumer:
         ```bash
         bin/kafka-console-consumer.sh --topic tmdb_movies-test --bootstrap-server ilyas-VirtualBox:9092 --from-beginning
         ```
+    - The output will looklike this : 
+
+    ```bash{
+      "Movie_ID": 1000075,
+      "Title": "The Price of Money: A Largo Winch Adventure",
+      "Release_Date": "2024-07-31",
+      "Genres": [
+        "Action",
+        "Adventure",
+        "Thriller"
+      ],
+      "Vote_Average": 5.928,
+      "Vote_Count": 83,
+      "Popularity": 735.391,
+      "Budget": 17000000,
+      "Revenue": 0,
+      "Production_Companies": [
+        "Pan-Europ\u00e9enne",
+        "Versus Production",
+        "TF1 Films Production",
+        "RTBF",
+        "BeTV",
+        "Proximus",
+        "Canal+",
+        "la Fe\u0301de\u0301ration Wallonie- Bruxelles",
+        "Cin\u00e9+",
+        "screen.brussels",
+        "Wild Bunch",
+        "Wallimage"
+      ]
+    }
+    {
+      "Movie_ID": 1276945,
+      "Title": "Ferry 2",
+      "Release_Date": "2024-12-19",
+      "Genres": [
+        "Crime",
+        "Thriller",
+        "Action"
+      ],
+      "Vote_Average": 5.7,
+      "Vote_Count": 76,
+      "Popularity": 873.984,
+      "Budget": 0,
+      "Revenue": 0,
+      "Production_Companies": [
+        "De Mensen",
+        "VRT"
+      ]
+    }
+    user@PNS-VirtualBox:~/2024/kafka/kafkaism/github_project$ python3 tmdb_api_producer.py
+    {
+      "Movie_ID": 558449,
+      "Title": "Gladiator II",
+      "Release_Date": "2024-11-05",
+      "Genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "Vote_Average": 6.8,
+      "Vote_Count": 2104,
+      "Popularity": 4201.992,
+      "Budget": 310000000,
+      "Revenue": 449835755,
+      "Production_Companies": [
+        "Paramount Pictures",
+        "Scott Free Productions",
+        "Lucy Fisher/Douglas Wick Productions"
+      ]
+    }
+    {
+      "Movie_ID": 939243,
+      "Title": "Sonic the Hedgehog 3",
+      "Release_Date": "2024-12-19",
+      "Genres": [
+        "Action",
+        "Science Fiction",
+        "Comedy",
+        "Family"
+      ],
+      "Vote_Average": 7.7,
+      "Vote_Count": 386,
+      "Popularity": 4186.749,
+      "Budget": 122000000,
+      "Revenue": 338215740,
+      "Production_Companies": [
+        "Paramount Pictures",
+        "Original Film",
+        "Marza Animation Planet",
+        "SEGA",
+        "Blur Studio",
+        "SEGA of America"
+      ]
+    }
+    {
+      "Movie_ID": 1156593,
+      "Title": "Your Fault",
+      "Release_Date": "2024-12-26",
+      "Genres": [
+        "Romance",
+        "Drama"
+      ],
+      "Vote_Average": 7.133,
+      "Vote_Count": 737,
+      "Popularity": 3009.907,
+      "Budget": 0,
+      "Revenue": 0,
+      "Production_Companies": [
+        "Pokeepsie Films",
+        "Amazon MGM Studios"
+      ]
+    }
+    {
+      "Movie_ID": 762509,
+      "Title": "Mufasa: The Lion King",
+      "Release_Date": "2024-12-18",
+      "Genres": [
+        "Adventure",
+        "Family",
+        "Animation"
+      ],
+      "Vote_Average": 7.5,
+      "Vote_Count": 498,
+      "Popularity": 2924.518,
+      "Budget": 200000000,
+      "Revenue": 478145305,
+      "Production_Companies": [
+        "Walt Disney Pictures"
+      ]
+    }
+    {
+      "Movie_ID": 912649,
+      "Title": "Venom: The Last Dance",
+      "Release_Date": "2024-10-22",
+      "Genres": [
+        "Action",
+        "Science Fiction",
+        "Adventure"
+      ],
+      "Vote_Average": 6.814,
+      "Vote_Count": 2195,
+      "Popularity": 2862.276,
+      "Budget": 120000000,
+      "Revenue": 476391878,
+      "Production_Companies": [
+        "Columbia Pictures",
+        "Pascal Pictures",
+        "Matt Tolmach Productions",
+        "Hutch Parker Entertainment",
+        "Arad Productions"
+      ]
+    }
+    {
+      "Movie_ID": 845781,
+      "Title": "Red One",
+      "Release_Date": "2024-10-31",
+      "Genres": [
+        "Action",
+        "Fantasy",
+        "Comedy"
+      ],
+      "Vote_Average": 7.0,
+      "Vote_Count": 1882,
+      "Popularity": 2249.629,
+      "Budget": 250000000,
+      "Revenue": 182861176,
+      "Production_Companies": [
+        "Seven Bucks Productions",
+        "The Detective Agency",
+        "Chris Morgan Productions",
+        "Metro-Goldwyn-Mayer"
+      ]
+    }
+    {
+      "Movie_ID": 402431,
+      "Title": "Wicked",
+      "Release_Date": "2024-11-20",
+      "Genres": [
+        "Drama",
+        "Romance",
+        "Fantasy"
+      ],
+      "Vote_Average": 7.3,
+      "Vote_Count": 1078,
+      "Popularity": 2440.1,
+      "Budget": 150000000,
+      "Revenue": 681385955,
+      "Production_Companies": [
+        "Universal Pictures",
+        "Marc Platt Productions"
+      ]
+    }
+    {
+      "Movie_ID": 839033,
+      "Title": "The Lord of the Rings: The War of the Rohirrim",
+      "Release_Date": "2024-12-05",
+      "Genres": [
+        "Animation",
+        "Fantasy",
+        "Action",
+        "Adventure"
+      ],
+      "Vote_Average": 6.6,
+      "Vote_Count": 251,
+      "Popularity": 2166.194,
+      "Budget": 30000000,
+      "Revenue": 19891554,
+      "Production_Companies": [
+        "New Line Cinema",
+        "Warner Bros. Animation",
+        "Sola Entertainment",
+        "Middle-earth Enterprises",
+        "WingNut Films",
+        "Domain Entertainment"
+      ]
+    }
+    {
+      "Movie_ID": 1241982,
+      "Title": "Moana 2",
+      "Release_Date": "2024-11-21",
+      "Genres": [
+        "Animation",
+        "Adventure",
+        "Family",
+        "Comedy"
+      ],
+      "Vote_Average": 7.0,
+      "Vote_Count": 781,
+      "Popularity": 2083.288,
+      "Budget": 150000000,
+      "Revenue": 961922690,
+      "Production_Companies": [
+        "Walt Disney Pictures",
+        "Walt Disney Animation Studios",
+        "Walt Disney Animation Studios"
+      ]
+    }
+    {
+      "Movie_ID": 1035048,
+      "Title": "Elevation",
+      "Release_Date": "2024-11-07",
+      "Genres": [
+        "Action",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "Vote_Average": 6.23,
+      "Vote_Count": 280,
+      "Popularity": 1576.453,
+      "Budget": 18000000,
+      "Revenue": 3300000,
+      "Production_Companies": [
+        "Lyrical Media",
+        "Fuller Media",
+        "Inspire Entertainment",
+        "Grinder Monkey",
+        "John Glenn Entertainment"
+      ]
+    }
+    {
+      "Movie_ID": 970450,
+      "Title": "Werewolves",
+      "Release_Date": "2024-12-04",
+      "Genres": [
+        "Action",
+        "Horror",
+        "Thriller"
+      ],
+      "Vote_Average": 6.041,
+      "Vote_Count": 121,
+      "Popularity": 1670.395,
+      "Budget": 0,
+      "Revenue": 1052998,
+      "Production_Companies": [
+        "The Solution",
+        "Pimienta",
+        "Monty the Dog Productions"
+      ]
+    }
+    {
+      "Movie_ID": 1043905,
+      "Title": "Dirty Angels",
+      "Release_Date": "2024-12-11",
+      "Genres": [
+        "Action",
+        "Drama",
+        "Thriller"
+      ],
+      "Vote_Average": 6.546,
+      "Vote_Count": 98,
+      "Popularity": 1354.815,
+      "Budget": 0,
+      "Revenue": 0,
+      "Production_Companies": [
+        "Millennium Media",
+        "Nu Boyana Film Studios",
+        "I Road Productions"
+      ]
+    }
+    {
+      "Movie_ID": 1005331,
+      "Title": "Carry-On",
+      "Release_Date": "2024-12-05",
+      "Genres": [
+        "Action",
+        "Thriller"
+      ],
+      "Vote_Average": 6.956,
+      "Vote_Count": 1493,
+      "Popularity": 1228.88,
+      "Budget": 47000000,
+      "Revenue": 0,
+      "Production_Companies": [
+        "Dylan Clark Productions",
+        "DreamWorks Pictures"
+      ]
+    }
+    {
+      "Movie_ID": 1010581,
+      "Title": "My Fault",
+      "Release_Date": "2023-06-08",
+      "Genres": [
+        "Romance",
+        "Drama"
+      ],
+      "Vote_Average": 7.9,
+      "Vote_Count": 3330,
+      "Popularity": 1054.65,
+      "Budget": 0,
+      "Revenue": 0,
+      "Production_Companies": [
+        "Pokeepsie Films",
+        "Amazon Studios"
+      ]
+    }
+    {
+      "Movie_ID": 823219,
+      "Title": "Flow",
+      "Release_Date": "2024-01-30",
+      "Genres": [
+        "Animation",
+        "Fantasy",
+        "Adventure"
+      ],
+      "Vote_Average": 8.4,
+      "Vote_Count": 570,
+      "Popularity": 1109.247,
+      "Budget": 3500000,
+      "Revenue": 6831946,
+      "Production_Companies": [
+        "Dream Well Studio",
+        "Sacrebleu Productions",
+        "Take Five",
+        "ARTE France Cin\u00e9ma",
+        "RTBF"
+      ]
+    }
+    {
+      "Movie_ID": 933260,
+      "Title": "The Substance",
+      "Release_Date": "2024-09-07",
+      "Genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "Vote_Average": 7.1,
+      "Vote_Count": 3067,
+      "Popularity": 1086.872,
+      "Budget": 17500000,
+      "Revenue": 78011465,
+      "Production_Companies": [
+        "Working Title Films",
+        "Blacksmith",
+        "Working Title Films"
+      ]
+    }
+    {
+      "Movie_ID": 426063,
+      "Title": "Nosferatu",
+      "Release_Date": "2024-12-25",
+      "Genres": [
+        "Drama",
+        "Fantasy",
+        "Horror"
+      ],
+      "Vote_Average": 6.8,
+      "Vote_Count": 617,
+      "Popularity": 952.121,
+      "Budget": 50000000,
+      "Revenue": 101613765,
+      "Production_Companies": [
+        "Focus Features",
+        "Studio 8",
+        "Maiden Voyage Pictures",
+        "Birch Hill Road Entertainment"
+      ]
+    }
+    {
+      "Movie_ID": 533535,
+      "Title": "Deadpool & Wolverine",
+      "Release_Date": "2024-07-24",
+      "Genres": [
+        "Action",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "Vote_Average": 7.7,
+      "Vote_Count": 6267,
+      "Popularity": 856.096,
+      "Budget": 200000000,
+      "Revenue": 1338073645,
+      "Production_Companies": [
+        "Marvel Studios",
+        "Maximum Effort",
+        "21 Laps Entertainment",
+        "20th Century Studios",
+        "Kevin Feige Productions",
+        "TSG Entertainment"
+      ]
+    }
+    {
+      "Movie_ID": 1000075,
+      "Title": "The Price of Money: A Largo Winch Adventure",
+      "Release_Date": "2024-07-31",
+      "Genres": [
+        "Action",
+        "Adventure",
+        "Thriller"
+      ],
+      "Vote_Average": 5.928,
+      "Vote_Count": 83,
+      "Popularity": 735.391,
+      "Budget": 17000000,
+      "Revenue": 0,
+      "Production_Companies": [
+        "Pan-Europ\u00e9enne",
+        "Versus Production",
+        "TF1 Films Production",
+        "RTBF",
+        "BeTV",
+        "Proximus",
+        "Canal+",
+        "la Fe\u0301de\u0301ration Wallonie- Bruxelles",
+        "Cin\u00e9+",
+        "screen.brussels",
+        "Wild Bunch",
+        "Wallimage"
+      ]
+    }
+    {
+      "Movie_ID": 1276945,
+      "Title": "Ferry 2",
+      "Release_Date": "2024-12-19",
+      "Genres": [
+        "Crime",
+        "Thriller",
+        "Action"
+      ],
+      "Vote_Average": 5.7,
+      "Vote_Count": 76,
+      "Popularity": 873.984,
+      "Budget": 0,
+      "Revenue": 0,
+      "Production_Companies": [
+        "De Mensen",
+        "VRT"
+      ]
+    }
+```
        
 
