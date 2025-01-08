@@ -830,26 +830,26 @@ Source Table Schema:
 ## **`elasticsearch`** & **`kibana`**
 
 - installation
-  1. installing elastic
+1. installing elastic
         
         ```bash
         wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.15-linux-x86_64.tar.gz
         ```
         
-  2. extract it
+2. extract it
         
         ```bash
         tar -xzf elasticsearch-7.17.15-linux-x86_64.tar.gz
         ```
         
-  3. navigate to it
+3. navigate to it
         
         ```bash
         mv elasticsearch-7.17.15 elasticsearch
         cd elasticsearch
         ```
         
-  4. run elastic
+4. run elastic
         
         ```bash
         ./bin/elasticsearch
