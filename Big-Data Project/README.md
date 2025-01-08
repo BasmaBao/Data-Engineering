@@ -855,14 +855,14 @@ Source Table Schema:
         ./bin/elasticsearch
         ```
         
-  5. if you saw this Warning
+ 5. if you saw this Warning
         
         ```bash
         warning: usage of JAVA_HOME is deprecated, use ES_JAVA_HOME
         Future versions of Elasticsearch will require Java 11; your Java version from [/usr/lib/jvm/java-8-openjdk-amd64/jre] does not 		meet this requirement. Consider switching to a distribution of Elasticsearch with a bundled JDK. If you are already using a 		distribution with a bundled JDK, ensure the JAVA_HOME environment variable is not set.
 	```     
-  6. stop elastic **`ctrl + c`**
-  7. copy the path where your **`java 11`** & **`bin/elasticsearch`** located & execute it in **`bashrc`** file
+ 6. stop elastic **`ctrl + c`**
+ 7. copy the path where your **`java 11`** & **`bin/elasticsearch`** located & execute it in **`bashrc`** file
         
         ```bash
         vim ~/.bashrc
