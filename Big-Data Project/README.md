@@ -735,7 +735,7 @@ for message in consumer:
         
     - before execution make sure you have **`flink`** & **`kafka`** started
     - run the Producer file first then `kafka_flink_movie.py`
-```bash
+```python
 from pyflink.table import TableEnvironment, EnvironmentSettings
 
 # Create a TableEnvironment
@@ -788,7 +788,45 @@ result_table = t_env.sql_query(sql_query)
 
 # Print the result table to the console
 result_table.execute().print()
-```
+                           ```
+- The output:
+```bash
+Source Table Schema:
+(
+  `Movie_ID` BIGINT,
+  `Title` VARCHAR(255),
+  `Release_Date` VARCHAR(255),
+  `Genres` ARRAY<VARCHAR(255)>,
+  `Vote_Average` DECIMAL(3, 1),
+  `Vote_Count` INT,
+  `Popularity` DECIMAL(10, 2),
+  `Budget` BIGINT,
+  `Revenue` BIGINT,
+  `Production_Companies` ARRAY<VARCHAR(255)>
+)
++----+----------------------+--------------------------------+--------------------------------+--------------------------------+--------------+-------------+--------------+----------------------+----------------------+--------------------------------+
+| op |             Movie_ID |                          Title |                   Release_Date |                         Genres | Vote_Average |  Vote_Count |   Popularity |               Budget |              Revenue |           Production_Companies |
++----+----------------------+--------------------------------+--------------------------------+--------------------------------+--------------+-------------+--------------+----------------------+----------------------+--------------------------------+
+| +I |              1156593 |                     Your Fault |                     2024-12-26 |               [Romance, Drama] |          7.1 |         747 |      3009.91 |                    0 |                    0 | [Pokeepsie Films, Amazon MG... |
+| +I |               762509 |          Mufasa: The Lion King |                     2024-12-18 | [Adventure, Family, Animation] |          7.4 |         511 |      2924.52 |            200000000 |            478145305 |         [Walt Disney Pictures] |
+| +I |               912649 |          Venom: The Last Dance |                     2024-10-22 | [Action, Science Fiction, A... |          6.8 |        2203 |      2862.28 |            120000000 |            478100622 | [Columbia Pictures, Pascal ... |
+| +I |               402431 |                         Wicked |                     2024-11-20 |      [Drama, Romance, Fantasy] |          7.3 |        1085 |      2440.10 |            150000000 |            681385955 | [Universal Pictures, Marc P... |
+| +I |               845781 |                        Red One |                     2024-10-31 |      [Action, Fantasy, Comedy] |          7.0 |        1890 |      2249.63 |            250000000 |            182861176 | [Seven Bucks Productions, T... |
+| +I |               839033 | The Lord of the Rings: The ... |                     2024-12-05 | [Animation, Fantasy, Action... |          6.6 |         254 |      2166.19 |             30000000 |             19891554 | [New Line Cinema, Warner Br... |
+| +I |              1241982 |                        Moana 2 |                     2024-11-21 | [Animation, Adventure, Fami... |          7.0 |         784 |      2083.29 |            150000000 |            961922690 | [Walt Disney Pictures, Walt... |
+| +I |               970450 |                     Werewolves |                     2024-12-04 |     [Action, Horror, Thriller] |          6.1 |         127 |      1670.40 |                    0 |              1052998 | [The Solution, Pimienta, Mo... |
+| +I |              1035048 |                      Elevation |                     2024-11-07 | [Action, Science Fiction, T... |          6.2 |         287 |      1576.45 |             18000000 |              3300000 | [Lyrical Media, Fuller Medi... |
+| +I |              1043905 |                   Dirty Angels |                     2024-12-11 |      [Action, Drama, Thriller] |          6.5 |         102 |      1354.82 |                    0 |                    0 | [Millennium Media, Nu Boyan... |
+| +I |              1005331 |                       Carry-On |                     2024-12-05 |             [Action, Thriller] |          7.0 |        1503 |      1228.88 |             47000000 |                    0 | [Dylan Clark Productions, D... |
+| +I |              1214667 | Making Squid Game: The Chal... |                     2023-12-06 |                  [Documentary] |          5.9 |          21 |      1112.19 |                    0 |                    0 |                             [] |
+| +I |               823219 |                           Flow |                     2024-01-30 | [Animation, Fantasy, Advent... |          8.4 |         581 |      1109.25 |              3500000 |              6831946 | [Dream Well Studio, Sacrebl... |
+| +I |               933260 |                  The Substance |                     2024-09-07 |      [Horror, Science Fiction] |          7.1 |        3087 |      1086.87 |             17500000 |             78011465 | [Working Title Films, Black... |
+| +I |              1010581 |                       My Fault |                     2023-06-08 |               [Romance, Drama] |          7.9 |        3334 |      1054.65 |                    0 |                    0 | [Pokeepsie Films, Amazon St... |
+| +I |               426063 |                      Nosferatu |                     2024-12-25 |       [Drama, Fantasy, Horror] |          6.9 |         647 |       952.12 |             50000000 |            101613765 | [Focus Features, Studio 8, ... |
+| +I |              1276945 |                        Ferry 2 |                     2024-12-19 |      [Crime, Thriller, Action] |          5.7 |          77 |       873.98 |                    0 |                    0 |               [De Mensen, VRT] |
+| +I |               533535 |           Deadpool & Wolverine |                     2024-07-24 | [Action, Comedy, Science Fi... |          7.7 |        6277 |       856.10 |            200000000 |           1338073645 | [Marvel Studios, Maximum Ef... |
+                                                                ```
+  
 
 
 
