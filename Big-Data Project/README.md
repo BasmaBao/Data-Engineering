@@ -984,6 +984,15 @@ tagline	"You Know, for Search"
         # Insert the processed data into the sink table
         result_table.execute_insert('sink_table').wait()
         ```
+## Unified Startup Guide: Running Kafka, Flink, Elasticsearch, and Kibana:
+ ```bash
+        bin/zookeeper-server-start.sh config/zookeeper.properties
+        bin/kafka-server-start.sh config/server.properties
+        ./bin/start-cluster.sh --run it flink folder 
+        ./bin/elasticsearch --run it in elasticsearch folder
+        ./bin/kibana --run it in kibana folder
+        ```
+
         
   
 
