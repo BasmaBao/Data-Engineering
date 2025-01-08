@@ -12,7 +12,7 @@ This project sets up a real-time data streaming pipeline designed to process, st
 
 The goal is to create an efficient pipeline that ingests real-time movie data, processes it, and displays visual analytics using Elasticsearch and Kibana. You can customize and extend this setup with additional tools, but ensure compatibility among all the components.
 
-![imgs](schema.png)
+![schema](imgs/shema.png)
 
 This guide outlines the steps to implement and work with this pipeline, including the integration of the **TMDB API** for retrieving movie data. Feel free to modify or extend this setup to fit your project requirements, but be sure to ensure compatibility across tools and technologies. 
 
