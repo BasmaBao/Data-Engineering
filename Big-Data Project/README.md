@@ -19,7 +19,7 @@ This guide outlines the steps to implement and work with this pipeline, includin
 Let me know if you need further adjustments!
 
 
-## **`TMDB`** API
+## **TMDB** API
 
 - **How to Get Your TMDB API Key:**
 
@@ -655,7 +655,7 @@ for message in consumer:
       ]
     }
     ```
-## **`kafka`** & **`Flink`** streaming
+## **kafka** & **Flink** streaming
 ### Installation Requirements
 
 - **Compatibility**: Ensure `**apache-flink**`, `**Pyflink**`, and `**flink-sql-connector-kafka-1.16.3.jar**` are all the same version.
@@ -827,7 +827,7 @@ Source Table Schema:
 | +I |               533535 |           Deadpool & Wolverine |                     2024-07-24 | [Action, Comedy, Science Fi... |          7.7 |        6277 |       856.10 |            200000000 |           1338073645 | [Marvel Studios, Maximum Ef... |
 ```
 
-## **`elasticsearch`** & **`kibana`**
+## **elasticsearch** & **kibana**
 
 - installation
 1. installing elastic
@@ -1077,6 +1077,27 @@ sink_table.print_schema()
 # Insert the processed data into the sink table
 result_table.execute_insert('sink_table').wait()
 ```
+- if the code runs correctly
+    - navigate to **localhost:5601**
+    - in side bar: ***Stack Management > Index Management > indices***
+    - you should see the name of index written before in the code example:  **`'index' = 'my_movie_data'`**
+        
+     ![Untitled 2](imgs/index.png)
+        
+    - navigate to ***index Patterns*** in the same level & create template with the same name of the index example : “my_movie_data”
+        
+     ![Untitled 2](imgs/pattern.png)
+        
+    - now inside bar navigate to ***Dashboard > Create*** you should see the index then drag & drop the columns from the left side & choose the proper data schema
+    - custom your api data & save it
+      ![Untitled 3](imgs/dash.png)
+    - A zoomed-in version to see the Visualizations
+      ![Untitled 4](imgs/dash1.png)
+      ![Untitled 5](imgs/dash2.png)
+      ![Untitled 6](imgs/dash3.png)
+      ![Untitled 7](imgs/dash4.png)
+      
+
 
 
         
