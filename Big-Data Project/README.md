@@ -18,7 +18,6 @@ This guide outlines the steps to implement and work with this pipeline, includin
 
 Let me know if you need further adjustments!
 
-## Project Part 1
 
 ### **`TMDB`** API
 
@@ -229,14 +228,14 @@ for message in consumer:
     print(data)  # Print the tweet
 ```
     
-    - check if the consumer got the data
+- check if the consumer got the data
         
         ```bash
         bin/kafka-console-consumer.sh --topic tmdb_movies-test --bootstrap-server ilyas-VirtualBox:9092 --from-beginning
         ```
-    - The output will looklike this : 
+- The output will looklike this : 
 
-    ```bash
+  ```bash
     {
       "Movie_ID": 558449,
       "Title": "Gladiator II",
