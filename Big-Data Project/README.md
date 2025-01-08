@@ -826,6 +826,79 @@ Source Table Schema:
 | +I |              1276945 |                        Ferry 2 |                     2024-12-19 |      [Crime, Thriller, Action] |          5.7 |          77 |       873.98 |                    0 |                    0 |               [De Mensen, VRT] |
 | +I |               533535 |           Deadpool & Wolverine |                     2024-07-24 | [Action, Comedy, Science Fi... |          7.7 |        6277 |       856.10 |            200000000 |           1338073645 | [Marvel Studios, Maximum Ef... |
 ```
+
+## **`elasticsearch`** & **`kibana`**
+
+- installation
+  1. installing elastic
+        
+        ```bash
+        wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.15-linux-x86_64.tar.gz
+        ```
+        
+  2. extract it
+        
+        ```bash
+        tar -xzf elasticsearch-7.17.15-linux-x86_64.tar.gz
+        ```
+        
+  3. navigate to it
+        
+        ```bash
+        mv elasticsearch-7.17.15 elasticsearch
+        cd elasticsearch
+        ```
+        
+  4. run elastic
+        
+        ```bash
+        ./bin/elasticsearch
+        ```
+        
+    - if you saw this Warning
+        
+        ```bash
+        warning: usage of JAVA_HOME is deprecated, use ES_JAVA_HOME
+        Future versions of Elasticsearch will require Java 11; your Java version from [/usr/lib/jvm/java-8-openjdk-amd64/jre] does not meet this requirement. Consider switching to a distribution of Elasticsearch with a bundled JDK. If you are already using a distribution with a bundled JDK, ensure the JAVA_HOME environment variable is not set.
+```
+        
+        - stop elastic **`ctrl + c`**
+        - copy the path where your **`java 11`** & **`bin/elasticsearch`** located & execute it in **`bashrc`** file
+        
+        ```bash
+        vim ~/.bashrc
+        
+        # replace the path with your path
+        export ES_JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+        /home/yourpath/elasticsearch/bin/elasticsearch
+        
+        source ~/.bashrc
+        ```
+        
+    - **`elasticsearch`** cluster is running in
+        
+        ```bash
+        localhost:9200
+        ```
+        
+        the page is in **`json`** format you should se output similar to this:
+```json
+	
+name	"PNS-VirtualBox"
+cluster_name	"elasticsearch"
+cluster_uuid	"VsmBmrdYToayXZTOLOEBnQ"
+version	
+number	"7.17.15"
+build_flavor	"default"
+build_type	"tar"
+build_hash	"0b8ecfb4378335f4689c4223d1f1115f16bef3ba"
+build_date	"2023-11-10T22:03:46.987399016Z"
+build_snapshot	false
+lucene_version	"8.11.1"
+minimum_wire_compatibility_version	"6.8.0"
+minimum_index_compatibility_version	"6.0.0-beta1"
+tagline	"You Know, for Search"
+```
   
 
 
