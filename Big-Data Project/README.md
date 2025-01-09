@@ -1096,7 +1096,32 @@ result_table.execute_insert('sink_table').wait()
       ![Untitled 5](imgs/dash12.PNG)
       ![Untitled 6](imgs/dash17.PNG)
       ![Untitled 7](imgs/dash4.PNG)
-      
+
+
+## Commands to Launch Services
+
+| **Service**        | **Command**                                                                                     |
+|---------------------|-----------------------------------------------------------------------------------------------|
+| **Start Zookeeper** | `bin/zookeeper-server-start.sh config/zookeeper.properties`                                   |
+| **Start Kafka**     | `bin/kafka-server-start.sh config/server.properties`                                          |
+| **Create Topic**    | `bin/kafka-topics.sh --create --topic my_topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1` |
+| **List Topics**     | `bin/kafka-topics.sh --list --bootstrap-server localhost:9092`                                |
+| **Consume Messages**| `bin/kafka-console-consumer.sh --topic my_topic --bootstrap-server localhost:9092 --from-beginning` |
+| **Start Flink**     | `./bin/start-cluster.sh`                                                                      |
+| **Check Elasticsearch** | `ps aux | grep elasticsearch`                                                             |
+| **Kill Elasticsearch**  | `pkill -f elasticsearch`                                                                  |
+| **Start Kibana**    | `./bin/kibana`                                                                                |
+
+---
+
+## Localhost Links for Services
+
+| **Service**        | **Localhost URL**            |
+|---------------------|------------------------------|
+| **Flink Dashboard** | `http://localhost:8081`     |
+| **Elasticsearch**   | `http://localhost:9200`     |
+| **Kibana**          | `http://localhost:5601`     |
+
 
 
 
