@@ -12,7 +12,7 @@ This repository contains a collection of data engineering projects, showcasing s
     
    - Description: A project focused on leveraging Big Data technologies to process and analyze large datasets.
    - Status: Active
-   - 
+     
 ![IMAGE3](Big-Data%20Project/imgs/dash.PNG)
 
 ### 2. **ETL with MySQL and Airflow**
