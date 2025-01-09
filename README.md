@@ -8,14 +8,14 @@ This repository contains a collection of data engineering projects, showcasing s
 
 ### 1. **Big Data Project**
 
-    ![IMAGE1]([Big-Data Project/imgs/schema.png](https://github.com/BasmaBao/Data-Engineering/blob/main/Big-Data%20Project/imgs/schema.png))
+    ![IMAGE1](https://github.com/BasmaBao/Data-Engineering/blob/main/Big-Data%20Project/imgs/schema.png)
     
    - Description: A project focused on leveraging Big Data technologies to process and analyze large datasets.
    - Status: Active
 
 ### 2. **ETL with MySQL and Airflow**
 
-    ![IMAGE2]([ETLmysql_airflow/pic/sparkify_dag.PNG](https://github.com/BasmaBao/Data-Engineering/blob/main/ETLmysql_airflow/pic/sparkify_dag.PNG))
+    ![IMAGE2](https://github.com/BasmaBao/Data-Engineering/blob/main/ETLmysql_airflow/pic/sparkify_dag.PNG)
        
    - Description: A project implementing an ETL pipeline using MySQL as the data source and Apache Airflow for workflow orchestration.
    - Key Feature: Includes a DAG file for scheduling and managing tasks.
