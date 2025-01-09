@@ -1082,20 +1082,20 @@ result_table.execute_insert('sink_table').wait()
     - in side bar: ***Stack Management > Index Management > indices***
     - you should see the name of index written before in the code example:  **`'index' = 'my_movie_data'`**
         
-     ![Untitled 2](imgs/index.png)
+     ![Untitled 2](imgs/index.PNG)
         
     - navigate to ***index Patterns*** in the same level & create template with the same name of the index example : “my_movie_data”
         
-     ![Untitled 2](imgs/pattern.png)
+     ![Untitled 10](imgs/pattern.PNG)
         
     - now inside bar navigate to ***Dashboard > Create*** you should see the index then drag & drop the columns from the left side & choose the proper data schema
     - custom your api data & save it
-      ![Untitled 3](imgs/dash.png)
+      ![Untitled 3](imgs/dash.PNG)
     - A zoomed-in version to see the Visualizations
-      ![Untitled 4](imgs/dash1.png)
-      ![Untitled 5](imgs/dash2.png)
-      ![Untitled 6](imgs/dash3.png)
-      ![Untitled 7](imgs/dash4.png)
+      ![Untitled 4](imgs/dash1.PNG)
+      ![Untitled 5](imgs/dash2.PNG)
+      ![Untitled 6](imgs/dash3.PNG)
+      ![Untitled 7](imgs/dash4.PNG)
       
 
 
