@@ -1092,9 +1092,9 @@ result_table.execute_insert('sink_table').wait()
     - custom your api data & save it
       ![Untitled 3](imgs/dash.PNG)
     - A zoomed-in version to see the Visualizations
-      ![Untitled 4](imgs/dash1.PNG)
-      ![Untitled 5](imgs/dash2.PNG)
-      ![Untitled 6](imgs/dash3.PNG)
+      ![Untitled 4](imgs/dash11.PNG)
+      ![Untitled 5](imgs/dash12.PNG)
+      ![Untitled 6](imgs/dash17.PNG)
       ![Untitled 7](imgs/dash4.PNG)
       
 
