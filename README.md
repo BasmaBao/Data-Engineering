@@ -8,7 +8,7 @@ This repository contains a collection of data engineering projects, showcasing s
 
 ### 1. **Big Data Project**
 
-    ![IMAGE1](Big-Data Project/imgs/shema.png)
+    ![IMAGE1](Big-Data Project/imgs/schema.png)
     
    - Description: A project focused on leveraging Big Data technologies to process and analyze large datasets.
    - Status: Active
