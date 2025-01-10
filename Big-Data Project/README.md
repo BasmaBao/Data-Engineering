@@ -1094,6 +1094,7 @@ result_table.execute_insert('sink_table').wait()
     - A zoomed-in version to see the Visualizations
       ![Untitled 4](imgs/dash11.PNG)
       ![Untitled 5](imgs/dash12.PNG)
+      ![Untitled 8](imgs/dash1.PNG)
       ![Untitled 6](imgs/dash17.PNG)
       ![Untitled 7](imgs/dash4.PNG)
 
